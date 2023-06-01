@@ -37,4 +37,4 @@ const searchSlice = createSlice({
 })
 export const {searchMovies, fetchedSearchMovies, resetState} = searchSlice.actions;
 
-export default searchSlice.reducers;
+export default searchSlice.reducer;
