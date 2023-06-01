@@ -29,6 +29,12 @@ const searchSlice = createSlice({
                 totalPages: action.payload.total_Pages
 
             }
+        },
+        resetState: (state) => {
+            return initialState;
         }
     } 
 })
+export const {searchMovies, fetchedSearchMovies, resetState} = searchSlice.actions;
+
+export default searchSlice.reducers;
