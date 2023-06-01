@@ -1,5 +1,5 @@
 import {delay, all, call, put, takeEvery, takeLatest} from 'redux-saga/effects';
-import { fetchedSearchMovies } from '../redux/search';
+import { fetchedSearchMovies, searchMovies } from '../redux/search';
 import { API_KEY } from '../config';
 import TheMovieDbApi from '../lib/api';
 
@@ -8,7 +8,7 @@ const api = new TheMovieDbApi(API_KEY);
 function* fetchSearchMovies(action){
     yield delay(500);
     yield put(
-        fetchSearchMovies(yield call(api.searchMovies, action.payload))
+        fetchedSearchMovies(yield call(api.searchMovies, action.payload))
     );
 
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import { TextField } from '@mui/material'
 import {useDispatch} from 'react-redux';
 import { searchMovies } from '../redux/search';
+import  Downshift from 'downshift';
 const Suggestion = () => {
    const dispatch =  useDispatch();
 
@@ -12,20 +13,34 @@ const Suggestion = () => {
     dispatch(searchMovies(event.target.value))
    }
   return (
-  <>
-    <TextField
+
+  <Downshift>
+    {({
+        getInputProps,
+        getItemProps,
+        getMenuProps,
+        isOpen,
+        inputValue,
+        highlightedIndex,
+        selectedItem
+    }) => (
+        <TextField
         id="search"
         placeholder='Search'
         fullWidth={true}
         sx={{mb: 5}}
         variant="standard"
         InputProps={{
-            onChange: inputOnChange
+            ...getInputProps({
+                onChange: inputOnChange
+            })
+            
         }}
-
-    
   />
-  </>
+    )}
+  
+  </Downshift>
+ 
   )
 }
 
