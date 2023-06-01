@@ -8,7 +8,12 @@ const api = new TheMovieDbApi(API_KEY);
 function* fetchSearchMovies(action){
     yield delay(500);
     yield put(
-        fetchSearchMovies(yield call(api.searchMovies, action.payload));
-    )
+        fetchSearchMovies(yield call(api.searchMovies, action.payload))
+    );
 
+}
+export default function* watcherSaga(){
+    yield all([
+        yield takeLatest(searchMovies.type, fetchSearchMovies)
+    ])
 }
