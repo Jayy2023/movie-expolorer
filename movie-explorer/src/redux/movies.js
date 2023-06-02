@@ -17,6 +17,24 @@ export const moviesSlice = createSlice({
                 ...state,
                 isFetching: true,
             }
+        },
+        fetchedPopularMovies: (state, action) => {
+            return {
+                ...state,
+                results: [...state.results, ...action.payload.results],
+                hasMore: action.payload.page < action.payload.totalPages,
+                results: action.payload.totalResults,
+                page: action.payload.page,
+                totalPages: action.payload.totalPages,
+                isFetching: false,
+            }
+           
+        },
+        resetState: (state) => {
+            return initialState;
         }
     }
 })
+export const {getPopularMovies, fetchedPopularMovies, resetState} = moviesSlice.actions;
+
+export default moviesSlice.reducer;
