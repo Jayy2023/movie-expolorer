@@ -4,10 +4,11 @@ import {useSelector} from 'react-redux';
 
 const SearchMoviesSuggestion = () => {
     const {search} = useSelector((store) => store)
+    const {genres} = useSelector((store) => genres)
 
   return (
     
-      <Suggestion movies={search}/>
+      <Suggestion movies={search} genres={genres}/>
     
   )
 }

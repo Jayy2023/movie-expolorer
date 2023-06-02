@@ -26,7 +26,7 @@ const LinkStyled = styled(Link)({
     textDecoration: 'none',
 })
 
-const Suggestion = ({movies}) => {
+const Suggestion = ({movies, genres}) => {
    const dispatch =  useDispatch();
 
    const inputOnChange = (event) => {
@@ -98,7 +98,7 @@ const Suggestion = ({movies}) => {
 
                                             </Typography>
                                             <Typography variant='caption'>
-                                                {item.title}
+                                                {mapGenres(item.genre_ids, genres)}
 
                                             </Typography>
                                          

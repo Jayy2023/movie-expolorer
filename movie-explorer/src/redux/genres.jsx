@@ -9,7 +9,7 @@ const genresSlice = createSlice({
     name: 'genresSlice',
     initialState,
     reducers: {
-        getGenres: (state)=> {
+        getGenres: (state) => {
             return {
                 ...state,
                 isFetching: true,
