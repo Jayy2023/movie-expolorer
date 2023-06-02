@@ -6,6 +6,7 @@ import  Downshift from 'downshift';
 import {Link} from 'react-router-dom';
 import {IMAGES_PATH, COVER_PLACEHOLDER} from '../config';
 import {styled } from '@mui/system';
+import {mapGenres} from "../lib/helper";
 
 
 const PaperStyled =  styled(Paper)({
@@ -24,6 +25,14 @@ const ImgStyled = styled('img')({
 const LinkStyled = styled(Link)({
     display: 'block',
     textDecoration: 'none',
+})
+const TitleStyled = styled(Typography)({
+    color: 'black',
+    paddingTop: 10
+})
+const CaptionStyled = styled(Typography)({
+    color: 'black',
+
 })
 
 const Suggestion = ({movies, genres}) => {
@@ -93,14 +102,14 @@ const Suggestion = ({movies, genres}) => {
                                             )}
                                         </Grid>
                                         <Grid item={true}>
-                                            <Typography variant='h4'>
+                                            <TitleStyled variant='h4'>
                                                 {item.title}
 
-                                            </Typography>
-                                            <Typography variant='caption'>
+                                            </TitleStyled>
+                                            <CaptionStyled variant='caption'>
                                                 {mapGenres(item.genre_ids, genres)}
 
-                                            </Typography>
+                                            </CaptionStyled>
                                          
                                            
                                         </Grid>
