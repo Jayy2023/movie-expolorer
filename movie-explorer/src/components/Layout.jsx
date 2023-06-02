@@ -21,6 +21,7 @@ const Img = styled('img')({
 
 });
 
+
 const LayoutWrapper = styled('div')(({theme}) => ({
     margin: 24,
     width: 'auto',
