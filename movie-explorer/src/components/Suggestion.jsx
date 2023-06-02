@@ -29,7 +29,7 @@ const Suggestion = ({movies}) => {
         highlightedIndex,
         selectedItem
     }) => (
-        <>
+        <div>
       <TextField
         id="search"
         placeholder='Search'
@@ -49,12 +49,13 @@ const Suggestion = ({movies}) => {
                 {
                     movies.results
                     .slice(0, 10)
-                    .filter((item)  => (
+                    .filter((item)  => 
                         !inputValue ||
                         item.title 
                         .toLowerCase()
                         .includes(inputValue.toLowerCase())
-                        ).map((item, index)=> (
+                        )
+                        .map((item, index) => (
                             <MenuItem {...getItemProps({
                               item,
                               key: item.id,
@@ -67,10 +68,10 @@ const Suggestion = ({movies}) => {
                                     <Grid container={true} spacing={8}>
                                         <Grid item={true}>
                                             {item.poster_path ? (
-                                                <img src={`${IMAGES_PATH}/w92 ${item.poster_path}`} alt= {item.title}/>
+                                                <img src={`${IMAGES_PATH}/w92${item.poster_path}`} alt= {item.title}/>
                                             ) : (
                                                 <img src={COVER_PLACEHOLDER} alt={item.title} />
-                                                
+
                                             )}
                                         </Grid>
                                         <Grid item={true}></Grid>
@@ -80,12 +81,12 @@ const Suggestion = ({movies}) => {
 
                             </MenuItem>
                         ))
-                    )
+                       
                 }
                </Paper>)
                 : null
             }
-        </>
+        </div>
   
     )}
   
