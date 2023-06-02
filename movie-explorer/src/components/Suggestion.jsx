@@ -1,9 +1,12 @@
 import React from 'react'
-import { TextField } from '@mui/material'
+import { TextField, Paper } from '@mui/material'
 import {useDispatch} from 'react-redux';
 import { searchMovies } from '../redux/search';
 import  Downshift from 'downshift';
-const Suggestion = () => {
+
+
+
+const Suggestion = ({movies}) => {
    const dispatch =  useDispatch();
 
    const inputOnChange = (event) => {
@@ -24,7 +27,8 @@ const Suggestion = () => {
         highlightedIndex,
         selectedItem
     }) => (
-        <TextField
+        <>
+      <TextField
         id="search"
         placeholder='Search'
         fullWidth={true}
@@ -36,7 +40,25 @@ const Suggestion = () => {
             })
             
         }}
-  />
+            />
+            {
+               isOpen ?  (
+               <Paper square={true} {...getMenuProps()}>
+                {
+                    movies.results
+                    .slice(0, 10)
+                    .filter((item)  => (
+                        !inputValue ||
+                        item.title 
+                        .loweCase()
+                        .includes(inputValue.toLowerCase()))
+                    )
+                }
+               </Paper>)
+                : null
+            }
+        </>
+  
     )}
   
   </Downshift>
