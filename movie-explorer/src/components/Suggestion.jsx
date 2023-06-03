@@ -34,6 +34,7 @@ const CaptionStyled = styled(Typography)({
     color: 'black',
 
 })
+const itemToString = ()=>"";
 
 const Suggestion = ({movies, genres}) => {
    const dispatch =  useDispatch();
@@ -46,7 +47,7 @@ const Suggestion = ({movies, genres}) => {
    }
   return (
 
-  <Downshift>
+  <Downshift itemToString={itemToString}>
     {({
         getInputProps,
         getItemProps,
@@ -69,6 +70,7 @@ const Suggestion = ({movies, genres}) => {
             })
             
         }}
+        
             />
             {
                isOpen ?  (
