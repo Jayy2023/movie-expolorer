@@ -5,6 +5,7 @@ import { API_KEY } from '../config';
 import TheMovieDbApi from '../lib/api';
 import { fetchedGenres, getGenres } from '../redux/genres';
 import { fetchedPopularMovies, getPopularMovies } from '../redux/movies';
+import { getMovie, fetchedMovie } from '../redux/movie';
 
 const api = new TheMovieDbApi(API_KEY);
 
@@ -23,8 +24,12 @@ function* fetchPopularMovies(action) {
   const popularMovies = yield call(api.getPopularMovies, action.payload);
   yield put(fetchedPopularMovies(popularMovies));
 }
+function* fetchMovie(action) {
+    yield put(fetchedMovie(yield call(api.getMovie, action.payload)));
+}
 
 export default function* watcherSaga() {
+    yield takeEvery(getMovie.type, fetchedMovie);
   yield takeEvery(getPopularMovies.type, fetchPopularMovies);
   yield takeEvery(getGenres.type, fetchGenres);
   yield takeLatest(searchMovies.type, fetchSearchMovies);

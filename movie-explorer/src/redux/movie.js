@@ -1,4 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
+import { moviesSlice } from "./movies";
 
 const initialState = {
     recommendations: {
@@ -17,13 +18,25 @@ const movieSlice = createSlice({
     getMovie: (state) =>{
         return {
             ...state,
-            isFetching: true
+            isFetching: true 
         }
     },
-    fetchedMovie: () =>{},
+    fetchedMovie: (state, action) =>{
+        return {
+            ...state,
+            ...action.payload,
+            recommendations: {
+                ...action.payload.recommendations,
+                results: action.payload.recommendations.results.slice(0, 10),
+            },
+            isFetching: false
+        }
+    },
     resetState: (state) =>{
         return initialState;
     },
     
    } 
 })
+export const {getMovie, fetchedMovie, resetState} = movieSlice.actions;
+export default moviesSlice.reducer;

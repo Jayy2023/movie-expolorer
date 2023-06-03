@@ -17,7 +17,7 @@ const Movies = ({ movies, genres }) => {
   }
 
   return (
-    <ImageList cols={5} rowHeight={365} gap={12}>
+    <ImageList cols={5} rowHeight={365} gap={12}> 
       {movies.map((movie) => (
         <ImageListItem key={movie.id}>
           <Link to={`/movie/${movie.id}`}>

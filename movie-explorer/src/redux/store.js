@@ -4,12 +4,16 @@ import watcherSaga from '../sagas';
 import createSagaMiddleware from '@redux-saga/core';
 import genresReducer from './genres';
 import moviesReducer from './movies';
+import movieReducer from './movies';
+
+
 const sagaMiddleware = createSagaMiddleware();
 const store = configureStore({
     reducer: {
         search: searchReducer,
         genres: genresReducer,
-        movies: moviesReducer
+        movies: moviesReducer,
+        movie: movieReducer
     },
     middleware: (getDefaultMiddleware) => {
         return getDefaultMiddleware({think: false}).prepend(sagaMiddleware);
