@@ -1,10 +1,10 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     genres: [],
-    isFetching: false,
+    isFetching: false
+};
 
-}
 const genresSlice = createSlice({
     name: 'genresSlice',
     initialState,
@@ -12,20 +12,22 @@ const genresSlice = createSlice({
         getGenres: (state) => {
             return {
                 ...state,
-                isFetching: true,
+                isFetching: true
             }
         },
-        fetchedGenres: (state, action)=> {
+        fetchedGenres: (state, action) => {
             return {
                 ...state,
                 genres: action.payload.genres,
-                isFetching: false,
+                isFetching: false
             }
         },
-        resetState :(state) =>{
-           return initialState
+        reseteState: (state) => {
+            return initialState
         }
     }
 });
-export const {getGenres, fetchedGenres, resetState} = genresSlice.actions;
-export default genresSlice.reducer
+
+export const { getGenres, fetchedGenres, reseteState } = genresSlice.actions;
+
+export default genresSlice.reducer;

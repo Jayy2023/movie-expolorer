@@ -1,13 +1,13 @@
-import {configureStore} from '@reduxjs/toolkit';
-import searchReducer from './search';
-import watcherSaga from '../sagas';
-import createSagaMiddleware from '@redux-saga/core';
-import genresReducer from './genres';
-import moviesReducer from './movies';
-import movieReducer from './movies';
-
+import { configureStore } from "@reduxjs/toolkit";
+import searchReducer from "./search";
+import genresReducer from "./genres";
+import watcherSaga from "../sagas";
+import moviesReducer from "./movies";
+import movieReducer from "./movie";
+import createSagaMiddleware from "@redux-saga/core";
 
 const sagaMiddleware = createSagaMiddleware();
+
 const store = configureStore({
     reducer: {
         search: searchReducer,
@@ -16,7 +16,7 @@ const store = configureStore({
         movie: movieReducer
     },
     middleware: (getDefaultMiddleware) => {
-        return getDefaultMiddleware({think: false}).prepend(sagaMiddleware);
+        return getDefaultMiddleware({ think: false }).prepend(sagaMiddleware);
     }
 });
 

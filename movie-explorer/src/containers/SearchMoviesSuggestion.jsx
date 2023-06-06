@@ -1,17 +1,13 @@
-import React from 'react'
-import Suggestion from '../components/Suggestion'
-import {useSelector} from 'react-redux';
+import React from "react";
+import Suggestion from "../components/Suggestion";
+import { useSelector } from "react-redux";
 
 const SearchMoviesSuggestion = () => {
-    const {search} = useSelector((store) => store)
-    const {genres} = useSelector((store) => store.genres)
 
-  return (
+    const { search } = useSelector((store) => store);
+    const { genres } = useSelector((store) => store.genres);
     
-      <Suggestion movies={search} genres={genres}/>
-    
-  )
+    return (<Suggestion movies={search} genres={genres} />);
 }
 
-export default SearchMoviesSuggestion
-
+export default SearchMoviesSuggestion;
