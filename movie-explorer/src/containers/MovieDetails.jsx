@@ -21,12 +21,12 @@ const MovieDetails = () => {
 
     useEffect( () => {
         if (id !== movie.id?.toString()) {
-            dispatch(getMovie(id ? parseInt(id, 10) : 0));
+            dispatch(getMovie(id ? parseInt(id, 10) : 0)); 
         }
-    }, [id, movie.id]);
+    }, [id, movie.id]); //fires off another api request for the movie you click on in recommended section
 
     return (
-        movie.isFetching ? <Loader /> : <Movie movie={movie} genres={genres} />
+        movie.isFetching ? <Loader /> : <Movie movie={movie} genres={genres} /> //
     );
 }
 

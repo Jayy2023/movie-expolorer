@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Grid, Typography } from "@mui/material";
 import { IMAGES_PATH, COVER_PLACEHOLDER } from "../config";
@@ -8,10 +7,9 @@ import Movies from './Movies';
 const GridStyled = styled(Grid)(({theme})=>({
     marginBottom: theme.spacing(3)
 }));
-
 const ImgStyled = styled('img')({
-    width: "100%"
-});
+    width: '100%',
+})
 
 const Movie = ({movie, genres}) => {
 
