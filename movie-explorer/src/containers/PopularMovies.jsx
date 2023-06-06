@@ -33,7 +33,7 @@ const PopularMovies = () => {
             Popular Movies
         </Typography>
         <Typography component="p" variant="p" gutterBottom={true}>
-            By: JJN Movies
+            By: Couch Productions
         </Typography>
         <InfiniteScroll 
             dataLength={movies.totalResults}

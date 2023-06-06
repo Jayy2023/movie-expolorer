@@ -13,9 +13,9 @@ const ImgStyled = styled('img')({
 
 const Movie = ({movie, genres}) => {
 
-    const formatRuntime = (runtime) => {
-        const hours = Math.floor(runtime / 60) + "h";
-        const minutes = (runtime % 60) + "m";
+    const formatRuntime = (runtime) => { // formatting that way it gets the hours and minutes separately
+        const hours = Math.floor(runtime / 60) + "h"; //hours
+        const minutes = (runtime % 60) + "m";   //getting the remainder after 60 and formatting into minutes
 
         return `${hours} ${minutes}`;
     };
@@ -61,8 +61,8 @@ const Movie = ({movie, genres}) => {
                                 </Typography>
                                 <Typography variant="body1" gutterBottom={true}>
                                     { movie.genres
-                                        .map((genre) => genre.name)
-                                        .join(", ")
+                                        .map((genre) => genre.name) //iterating over the genres 
+                                        .join(", ") //separating by comma and space
                                     }
                                 </Typography>
                             </>
@@ -76,8 +76,8 @@ const Movie = ({movie, genres}) => {
                                 </Typography>
                                 <Typography variant="body1" gutterBottom={true}>
                                     { movie.production_countries
-                                        .map((country) => country.name)
-                                        .join(", ")
+                                        .map((country) => country.name) 
+                                        .join(", ") //country names split with comma and space
                                     }
                                 </Typography>
                             </>

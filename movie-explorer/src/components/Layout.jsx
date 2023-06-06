@@ -2,7 +2,7 @@ import React from "react";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline } from "@mui/material";
 import { Link } from "react-router-dom";
-import logoImg from '../logo4.png';
+import logoImg from '../201.jpg';
 import { styled } from "@mui/system";
 import SearchMoviesSuggestion from "../containers/SearchMoviesSuggestion";
 
@@ -16,7 +16,7 @@ const Img = styled('img')({
     marginLeft: 'auto',
     marginRight: 'auto',
     display: 'block',
-    width: 150,
+    width: 350,
     maxWidth: '100%'
 });
 

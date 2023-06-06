@@ -12,16 +12,17 @@ const ImgStyled = styled('img')({
     objectFit: 'cover'
 });
 
-const ImageListItemStyled = styled(ImageListItem)({
-    overflow: 'hidden'
+const ImageListItemStyled = styled(ImageListItem)({ // 
+    overflow: 'hidden' //fixing spacing in between movies .
 });
 
 const Movies = ({movies, genres}) => {
     const theme = useTheme();
-    const matchDownMd = useMediaQuery(theme.breakpoints.down('sm'));
+    const matchDownMd = useMediaQuery(theme.breakpoints.down('sm')); //returns true or false depending on the media query 
 
     return (
-        <ImageList cols={matchDownMd ? 1 : 5} rowHeight={365} gap={12}>
+        //on small screen 1 column and bigger screen 5 columns 
+        <ImageList cols={matchDownMd ? 1 : 5} rowHeight={365} gap={12}>  
             {
                 movies.results.map((movie) => (
                     <ImageListItemStyled key={movie.id}>
